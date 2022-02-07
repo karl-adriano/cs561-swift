@@ -9,7 +9,7 @@ class MockWeatherService: WeatherService {
         self.shouldSucceed = shouldSucceed
         self.shouldReturnTemperatureWithAnEight = shouldReturnTemperatureWithAnEight
     }
-
+ 
     func getTemperature(completion: @escaping (_ response: Result<Int /* Temperature */, Error>) -> Void) {
         switch (shouldSucceed, shouldReturnTemperatureWithAnEight) {
         case (true, true):
@@ -25,4 +25,8 @@ class MockWeatherService: WeatherService {
             completion(.failure(error404))
         }
     }
+
+    func getAuthorization(completion: @escaping (_ accessToken: String) -> Void) {}
+
+    func getGreeting(completion: @escaping (_ response: Result<String, Error>) -> Void) {}
 }
